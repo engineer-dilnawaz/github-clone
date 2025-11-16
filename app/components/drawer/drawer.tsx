@@ -20,7 +20,7 @@ export const Drawer = () => {
     <Sheet modal>
       <SheetTrigger asChild>
         <div className="flex items-center gap-2 border border-gray-700 rounded-md p-2 cursor-pointer">
-          <Menu className="size-6 text-gray-300 " />
+          <Menu className="size-5 text-gray-300 " />
         </div>
       </SheetTrigger>
       <SheetContent

@@ -19,7 +19,7 @@ export function RootErrorBoundary({ error }: { error: Error }) {
   }
 
   return (
-    <main className="bg-primary h-screen w-screen flex flex-col items-center justify-center text-white gap-4">
+    <main className="flex flex-col items-center justify-center text-white gap-4">
       <div className="flex gap-2">
         <h1>{message}</h1>
         <p>{details}</p>
