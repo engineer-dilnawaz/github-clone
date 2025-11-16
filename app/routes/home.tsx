@@ -11,7 +11,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center bg-primary">
+    <div className="flex min-h-svh flex-col items-center justify-center">
       <Button variant="secondary">Click me</Button>
     </div>
   );

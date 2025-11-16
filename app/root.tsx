@@ -4,6 +4,8 @@ import { RootErrorBoundary } from "./error-boundary";
 import { RootLayout } from "./root-layout";
 
 import "./app.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import axios from "axios";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -22,8 +24,29 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return <Document>{children}</Document>;
 }
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      gcTime: 1000 * 60 * 30, // 30 minutes
+      refetchOnWindowFocus: false, // don’t annoy the user
+      refetchOnReconnect: true,
+      retry: (failureCount, error) => {
+        if (axios.isAxiosError(error) && error.response?.status === 401) {
+          return false;
+        }
+        return failureCount < 2;
+      },
+    },
+  },
+});
+
 export default function RootRoute() {
-  return <RootLayout />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RootLayout />
+    </QueryClientProvider>
+  );
 }
 
 export function ErrorBoundary(props: any) {

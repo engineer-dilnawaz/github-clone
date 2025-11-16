@@ -1,4 +1,5 @@
 import { Links, Meta, Scripts, ScrollRestoration } from "react-router";
+import { ThemeProvider } from "~/providers";
 
 export function Document({ children }: { children: React.ReactNode }) {
   return (
@@ -10,7 +11,7 @@ export function Document({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
