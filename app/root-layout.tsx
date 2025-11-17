@@ -5,7 +5,6 @@ export function RootLayout() {
   return (
     <div className="min-h-screen">
       <Outlet />
-
       <ReactQueryDevtools initialIsOpen={false} />
     </div>
   );

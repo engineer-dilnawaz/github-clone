@@ -1,12 +1,18 @@
+import "@primer/react-brand/lib/css/main.css";
+import "@primer/react-brand/fonts/fonts.css";
+
 import type { Route } from "./+types/root";
 import { Document } from "./document";
 import { RootErrorBoundary } from "./error-boundary";
 import { RootLayout } from "./root-layout";
 
 import "./app.css";
-import { Provider } from "~/components/ui/provider";
+import PrimerBrand from "@primer/react-brand";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import axios from "axios";
+
+const { ThemeProvider } = PrimerBrand;
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -45,9 +51,12 @@ const queryClient = new QueryClient({
 export default function RootRoute() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Provider>
+      <ThemeProvider
+        colorMode="dark"
+        style={{ backgroundColor: "var(--brand-color-canvas-default)" }}
+      >
         <RootLayout />
-      </Provider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

@@ -1,4 +1,3 @@
-import { Button } from "@chakra-ui/react";
 import { isRouteErrorResponse } from "react-router";
 
 import { Link } from "react-router";
@@ -31,7 +30,7 @@ export function RootErrorBoundary({ error }: { error: Error }) {
         )}
       </div>
       <Link to="/">
-        <Button>Home</Button>
+        <div>Home</div>
       </Link>
     </main>
   );
