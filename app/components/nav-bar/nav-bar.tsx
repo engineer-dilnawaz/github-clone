@@ -83,7 +83,7 @@ export const Navbar = () => {
                   return <SelectSeparator key={`separator-${index}`} />;
                 }
                 return (
-                  <SelectItem key={item.label} value={item.label}>
+                  <SelectItem key={item.label} itemValue={item.label}>
                     <item.icon className="size-4" />
                     {item.label}
                   </SelectItem>
