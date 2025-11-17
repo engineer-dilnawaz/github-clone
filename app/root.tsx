@@ -4,6 +4,7 @@ import { RootErrorBoundary } from "./error-boundary";
 import { RootLayout } from "./root-layout";
 
 import "./app.css";
+import { Provider } from "~/components/ui/provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import axios from "axios";
 
@@ -44,7 +45,9 @@ const queryClient = new QueryClient({
 export default function RootRoute() {
   return (
     <QueryClientProvider client={queryClient}>
-      <RootLayout />
+      <Provider>
+        <RootLayout />
+      </Provider>
     </QueryClientProvider>
   );
 }
