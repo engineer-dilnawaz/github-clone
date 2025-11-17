@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 import { ThemeToggler } from "~/components/theme-toggler";
-import { Drawer, WithTooltip } from "~/components";
+import { Drawer, Menubar, WithTooltip } from "~/components";
 import { githubLogoWhite } from "public/logos";
 import { Label } from "../ui/label";
 import { Link } from "react-router";
@@ -45,7 +45,7 @@ export const Navbar = () => {
         </Link>
       </div>
       <div className="flex items-center gap-2">
-        <div className="flex items-center gap-2 border border-gray-700 rounded-md py-2 px-3 cursor-pointer">
+        <div className="min-w-[250px] flex items-center gap-2 border border-gray-700 rounded-md py-2 px-3 cursor-pointer">
           <Search className="size-4 text-neutral-400" />
           <p className="text-sm text-neutral-400">
             Type
@@ -64,9 +64,7 @@ export const Navbar = () => {
             </Button>
           </WithTooltip>
           <WithTooltip tooltip="Open copilot">
-            <Button variant="outline" size="icon" className="w-8">
-              <ChevronDown className="size-4" />
-            </Button>
+            <Menubar />
           </WithTooltip>
         </ButtonGroup>
         <Separator orientation="vertical" />
